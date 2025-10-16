@@ -2,7 +2,7 @@
 
 # Data paths
 data:
-  base_dir: "/home/ubuntu/nafld_data" 
+  base_dir: "/home/ubuntu/nafld_data"
   clinical_data: "/home/ubuntu/nafld_data/clinical/clinical_data.csv"
   raw_wsi_extensions: [".svs", ".ndpi", ".tif", ".tiff"]
 
