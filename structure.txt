@@ -1,0 +1,46 @@
+(base) singhvj@vijays-MacBook-Pro:~ % tree nafld_biopsy_analysis
+nafld_biopsy_analysis
+├── analysis
+│   ├── __init__.py
+│   ├── biomarker_analysis.py
+│   ├── clinical_correlation.py
+│   └── subtype_discovery.py
+├── annotation
+│   ├── __init__.py
+│   ├── tools.py
+│   └── validation.py
+├── config
+│   ├── __init__.py
+│   ├── parameters.py
+│   └── paths.py
+├── config.yaml
+├── data
+│   ├── __init__.py
+│   ├── loaders.py
+│   ├── preprocessing.py
+│   └── quality_control.py
+├── features
+│   ├── __init__.py
+│   ├── extraction.py
+│   ├── selection.py
+│   └── spatial.py
+├── models
+│   ├── __init__.py
+│   ├── classification.py
+│   ├── detection.py
+│   ├── segmentation.py
+│   └── training.py
+├── README
+├── requirements.txt
+├── run_pipeline.py
+├── structure.txt
+├── utils
+│   ├── __init__.py
+│   ├── helpers.py
+│   └── loggers.py
+└── visualization
+    ├── __init__.py
+    ├── clinical_plots.py
+    ├── eature_plots.py
+    ├── model_plots.py
+    └── qc_plots.py

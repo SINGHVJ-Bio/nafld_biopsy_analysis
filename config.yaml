@@ -1,0 +1,78 @@
+# NAFLD Digital Pathology Pipeline Configuration
+
+# Data paths
+data:
+  base_dir: "/home/ubuntu/nafld_data"
+  clinical_data: "/home/ubuntu/nafld_data/clinical/clinical_data.csv"
+  raw_wsi_extensions: [".svs", ".ndpi", ".tif", ".tiff"]
+
+# Pipeline steps to run
+pipeline:
+  run_quality_control: true
+  run_stain_normalization: true
+  run_segmentation: true
+  run_feature_extraction: true
+  run_analysis: true
+  generate_reports: true
+
+# Quality control parameters
+quality_control:
+  min_tissue_percentage: 5.0
+  max_background_percentage: 95.0
+  focus_threshold: 0.7
+  min_slide_size_mb: 10
+
+# Stain normalization
+stain_normalization:
+  method: "macenko"  # macenko, vahadane, reinhard
+  reference_slide: "control_01.svs"
+  patch_size: [512, 512]
+  processing_level: 1
+
+# Segmentation model
+segmentation:
+  model_type: "unet"
+  num_classes: 5
+  input_size: [512, 512]
+  batch_size: 8
+  confidence_threshold: 0.7
+  use_pretrained: true
+  pretrained_path: "models/pretrained/segmentation_best.pth"
+
+# Feature extraction
+feature_extraction:
+  extract_morphological: true
+  extract_spatial: true
+  extract_textural: true
+  min_object_size: 10
+  spatial_bins: 10
+
+# Analysis parameters
+analysis:
+  n_clusters_range: [2, 8]
+  clustering_method: "kmeans"
+  cross_validation_folds: 5
+  statistical_alpha: 0.05
+  multiple_testing_correction: "fdr_bh"
+
+# Model training
+training:
+  batch_size: 8
+  learning_rate: 0.0001
+  num_epochs: 100
+  early_stopping_patience: 15
+  validation_split: 0.2
+
+# Hardware settings
+hardware:
+  num_workers: 4
+  pin_memory: true
+  gpu_id: 0
+  mixed_precision: true
+
+# Output settings
+output:
+  save_intermediate_results: true
+  generate_plots: true
+  generate_interactive_dashboards: true
+  report_format: ["html", "pdf"]
